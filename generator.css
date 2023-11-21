@@ -1,0 +1,14 @@
+body {
+    background-color: rgb(219, 219, 219);
+}
+
+.male {
+    --header-color: rgb(168, 197, 252);
+}
+.female {
+    --header-color: rgb(245, 168, 252);
+}
+
+.card .card-header {
+    background-color: var(--header-color);
+}
