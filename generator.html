@@ -23,23 +23,23 @@
         <div id="test"></div>
 
 
-        <div class="row p-3 bg-secondary">
+        <div class="row align-items-center p-3 bg-secondary">
             <div class="col input-group">
                 <span class="input-group-text">Sex</span>
                 <select class="form-control form-select" id="sex_input">
                     <option selected value="">Random</option>
-                    <option value="Homme">Male</option>
-                    <option value="Femme">Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
                 </select>
             </div>
             <div class="col input-group">
                 <span class="input-group-text">Kind</span>
                 <select class="form-control form-select" id="kind_input">
                     <option selected value="">Random</option>
-                    <option value="Humain">Human</option>
+                    <option value="Human">Human</option>
                     <option value="Vampire">Vampire</option>
-                    <option value="Sorcier">Warlock</option>
-                    <option value="Loup-Garou">Werewolf</option>
+                    <option value="Warlock">Warlock</option>
+                    <option value="Werewolf">Werewolf</option>
                 </select>
             </div>
             <div class="col input-group">
@@ -51,6 +51,14 @@
             <div class="col input-group">
                 <span class="input-group-text">Number</span>
                 <input type="number" class="form-control" id="number" min="1" max="100" value="1">
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="weighted_rdn" value="1" checked>
+                    <label class="form-check-label text-white" for="weighted_rdn">
+                        Weight by country
+                    </label>
+                </div>
             </div>
             <div class="col input-group d-grid">
                 <button class="btn btn-primary" type="button" onclick="generate();">Generate</button>

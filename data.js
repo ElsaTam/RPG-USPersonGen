@@ -14,7 +14,7 @@ var BIRTH_PLACES = {
             "country": "Mexico",
             "population": 10931,
             "language": "Spanish",
-            "ethnic_group": "Hispanic",
+            "ethnic_group": "Latino",
         },
         "india": {
             "country": "India",
@@ -38,7 +38,7 @@ var BIRTH_PLACES = {
             "country": "Salvador",
             "population": 1412,
             "language": "Spanish",
-            "ethnic_group": "Hispanic",
+            "ethnic_group": "Latino",
         },
         "vietnam": {
             "country": "Vietnam",
@@ -56,7 +56,7 @@ var BIRTH_PLACES = {
             "country": "Dominican Republic",
             "population": 1169,
             "language": "Spanish",
-            "ethnic_group": "Hispanic",
+            "ethnic_group": "Latino",
         },
         "south_korea": {
             "country": "South Korea",
@@ -68,13 +68,13 @@ var BIRTH_PLACES = {
             "country": "Guatemala",
             "population": 1111,
             "language": "Spanish",
-            "ethnic_group": "Hispanic",
+            "ethnic_group": "Latino",
         },
         "colombia": {
             "country": "Colombia",
             "population": 808,
             "language": "Spanish",
-            "ethnic_group": "Hispanic",
+            "ethnic_group": "Latino",
         },
         "canada": {
             "country": "Canada",
@@ -92,7 +92,7 @@ var BIRTH_PLACES = {
             "country": "Honduras",
             "population": 745,
             "language": "Spanish",
-            "ethnic_group": "Hispanic",
+            "ethnic_group": "Latino",
         },
         "haiti": {
             "country": "Haiti",
@@ -116,19 +116,19 @@ var BIRTH_PLACES = {
             "country": "Brazil",
             "population": 502,
             "language": "Portuguese",
-            "ethnic_group": "Hispanic",
+            "ethnic_group": "Latino",
         },
         "venezuela": {
             "country": "Venezuela",
             "population": 465,
             "language": "Spanish",
-            "ethnic_group": "Hispanic",
+            "ethnic_group": "Latino",
         },
         "peru": {
             "country": "Peru",
             "population": 446,
             "language": "Spanish",
-            "ethnic_group": "Hispanic",
+            "ethnic_group": "Latino",
         },
         "ecuador": {
             "country": "Ecuador",
@@ -206,7 +206,7 @@ var BIRTH_PLACES = {
             "country": "Nicaragua",
             "population": 257,
             "language": "Spanish",
-            "ethnic_group": "Hispanic",
+            "ethnic_group": "Latino",
         },
         "ethiopia": {
             "country": "Ethiopia",
@@ -242,7 +242,7 @@ var BIRTH_PLACES = {
             "country": "Argantina",
             "population": 210,
             "language": "Spanish",
-            "ethnic_group": "Hispanic",
+            "ethnic_group": "Latino",
         },
         "egypt": {
             "country": "Egypt",
@@ -284,7 +284,7 @@ var BIRTH_PLACES = {
             "country": "Portugal",
             "population": 161,
             "language": "Portuguese",
-            "ethnic_group": "Hispanic",
+            "ethnic_group": "Latino",
         },
         "kenya": {
             "country": "Kenya",
@@ -314,7 +314,7 @@ var BIRTH_PLACES = {
             "country": "Spain",
             "population": 116,
             "language": "Spanish",
-            "ethnic_group": "Hispanic",
+            "ethnic_group": "Latino",
         },
         "ireland": {
             "country": "Ireland",

@@ -216,7 +216,7 @@ function generate_with_images()
             url_img = random_image.attr('src');
             let html = `
             <div class="col">
-                <div class="card h-100 ${person.sex == "Homme" ? "male" : "female"}" style="width: 18rem;">
+                <div class="card h-100 ${person.sex == "Male" ? "male" : "female"}" style="width: 18rem;">
                     <div class="card-header text-center">
                         <h4>${person.first_name} ${person.last_name}</h4>
                     </div>
@@ -228,19 +228,19 @@ function generate_with_images()
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
-                            Né le <span class="fw-bold">${person.birth_date}</span> (${person.age} ans)<br>
-                            A <span class="fw-bold">${person.birth_place}</span>
+                            Birth date: <span class="fw-bold">${person.birth_date}</span> (${person.age} ans)<br>
+                            At <span class="fw-bold">${person.birth_place}</span>
                         </li>
                         <li class="list-group-item">
-                            <span class="fw-bold">Cheveux : </span>${person.hair}<br>
-                            <span class="fw-bold">Yeux : </span>${person.eyes}
+                            <span class="fw-bold">Hair: </span>${person.hair}<br>
+                            <span class="fw-bold">Eyes: </span>${person.eyes}
                         </li>
                         <li class="list-group-item">
-                            <span class="fw-bold">Taille : </span>${person.height} m<br>
-                            <span class="fw-bold">Poids : </span>${person.weight} kg
+                            <span class="fw-bold">Height: </span>${(3.28084 * person.height).toFixed(2)} ft (${person.height} m)<br>
+                            <span class="fw-bold">Weight: </span>${person.weight} kg
                         </li>
-                        <li class="list-group-item"><span class="fw-bold">Ethnie : </span>${person.ethnic_group}</li>
-                        <li class="list-group-item"><span class="fw-bold">Langues : </span>${person.languages}</li>
+                        <li class="list-group-item"><span class="fw-bold">Ethnic group: </span>${person.ethnic_group}</li>
+                        <li class="list-group-item"><span class="fw-bold">Languages: </span>${person.languages}</li>
                     </ul>
                 </div>
             </div>
@@ -272,7 +272,7 @@ function html_person()
     let person = generate_person();
     return `
     <div class="col">
-        <div class="card h-100 ${person.sex == "Homme" ? "male" : "female"}" style="width: 18rem;">
+        <div class="card h-100 ${person.sex == "Male" ? "male" : "female"}" style="width: 18rem;">
             <div class="card-header text-center">
                 <h4>${person.first_name} ${person.last_name}</h4>
             </div>
@@ -283,19 +283,19 @@ function html_person()
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                    Né le <span class="fw-bold">${person.birth_date}</span> (${person.age} ans)<br>
-                    A <span class="fw-bold">${person.birth_place}</span>
+                    Birth date: <span class="fw-bold">${person.birth_date}</span> (${person.age} ans)<br>
+                    At <span class="fw-bold">${person.birth_place}</span>
                 </li>
                 <li class="list-group-item">
-                    <span class="fw-bold">Cheveux : </span>${person.hair}<br>
-                    <span class="fw-bold">Yeux : </span>${person.eyes}
+                    <span class="fw-bold">Hair: </span>${person.hair}<br>
+                    <span class="fw-bold">Eyes: </span>${person.eyes}
                 </li>
                 <li class="list-group-item">
-                    <span class="fw-bold">Taille : </span>${person.height} m<br>
-                    <span class="fw-bold">Poids : </span>${person.weight} kg
+                    <span class="fw-bold">Height: </span>${(3.28084 * person.height).toFixed(2)} ft (${person.height} m)<br>
+                    <span class="fw-bold">Weight: </span>${person.weight} kg
                 </li>
-                <li class="list-group-item"><span class="fw-bold">Ethnie : </span>${person.ethnic_group}</li>
-                <li class="list-group-item"><span class="fw-bold">Langues : </span>${person.languages}</li>
+                <li class="list-group-item"><span class="fw-bold">Ethnic group: </span>${person.ethnic_group}</li>
+                <li class="list-group-item"><span class="fw-bold">Languages: </span>${person.languages}</li>
             </ul>
         </div>
     </div>
@@ -315,7 +315,7 @@ function generate_person()
     let languages = get_languages(key_country);
     let height = get_height();
     let weight = get_weight(height);
-    let hair = get_hair(key_country, age, (kind == "Humain" && sex == "Homme"));
+    let hair = get_hair(key_country, age, (kind == "Human" && sex == "Male"));
     let eyes = get_eyes(ethnic_group);
 
     return {
@@ -339,10 +339,10 @@ function generate_person()
 function create_url(person) {
     let gender;
     switch (person.sex) {
-        case "Homme":
+        case "Male":
             gender = "male";
             break;
-        case "Femme":
+        case "Female":
             gender = "female";
             break;
     }
@@ -353,60 +353,60 @@ function create_url(person) {
     else if (person.age < 23) age = "young-adult";
     else if (person.age < 50) age = "adult";
     else age = "elderly";
-    if (person.age >= 23 && person.kind == "Sorcier") age = rand(1, 100) < 50 ? "young-adult" : "adult";
+    if (person.age >= 23 && person.kind == "Warlock") age = rand(1, 100) < 50 ? "young-adult" : "adult";
 
     let ethnicity;
     switch (person.ethnic_group) {
-        case "Blanche" :
+        case "White" :
             ethnicity = "white";
             break;
-        case "Noire" :
+        case "Black" :
             ethnicity = "black";
             break;
-        case "Asiatique" :
+        case "Asian" :
             ethnicity = "asian";
             break;
-        case "Hispanique" :
+        case "Latino" :
             ethnicity = "latino";
             break;
     }
 
     let eye_color;
     switch (person.eyes) {
-        case "Marrons clairs":
-        case "Marrons":
-        case "Noirs":
-        case "Noisettes":
+        case "Light brown":
+        case "Brown":
+        case "Black":
+        case "Hazel":
             eye_color = "brown";
             break;
-        case "Bleus clairs":
-        case "Bleus":
+        case "Light blue":
+        case "Blue":
             eye_color = "blue";
             break;
-        case "Gris":
+        case "Gray":
             eye_color = "gray";
             break;
-        case "Verts":
+        case "Green":
             eye_color = "green";
             break;
     }
 
     let hair_color;
     switch (person.hair) {
-        case "Chatains":
+        case "Dark blond":
             hair_color = "brown";
             break;
-        case "Blonds":
+        case "Blond":
             hair_color = "blond";
             break;
-        case "Noirs":
+        case "Black":
             hair_color = "black";
             if (age == "elderly") hair_color = "gray";
             break;
-        case "Gris":
+        case "Gray":
             hair_color = "gray";
             break;
-        case "Roux":
+        case "Red":
             hair_color = "red";
             break;
         default:
@@ -422,7 +422,7 @@ function get_sex()
     let sex = $("#sex_input").val();
     if (sex && sex.length > 0) return sex;
     return weighted_random({
-        'Homme': 1, 'Femme': 1
+        'Male': 1, 'Female': 1
     });
 }
 
@@ -431,7 +431,7 @@ function get_kind()
     let kind = $("#kind_input").val();
     if (kind && kind.length > 0) return kind;
     return weighted_random({
-        'Humain': 10, 'Loup-Garou': 3, 'Vampire': 4, 'Sorcier': 8
+        'Human': 10, 'Werewolf': 3, 'Vampire': 4, 'Warlock': 8
     });
 }
 
@@ -439,13 +439,13 @@ function get_birth_date(kind)
 {
     let age = 0;
     switch(kind) {
-        case "Humain":
+        case "Human":
             age = rand(20, 80);
             break;
-        case "Loup-Garou":
+        case "Werewolf":
             age = rand(17, 100);
             break;
-        case "Sorcier":
+        case "Warlock":
             var ages = {};
             ages[rand(10, 19)] = 4;
             ages[rand(20, 199)] = 37;
@@ -487,7 +487,8 @@ function get_country(age)
 
     // Choose the probability of beeing born in the usa, based on the age;
     let usa_proba = -1; // Pick as any human of this generation, directly weighted by the population
-    if (age > 800) usa_proba = 5;
+    if (! $("#weighted_rdn").is(':checked')) usa_proba = -1;
+    else if (age > 800) usa_proba = 5;
     else if (age > 600) usa_proba = 10;
     else if (age > 400) usa_proba = 20;
     else if (age > 300) usa_proba = 40;
@@ -498,7 +499,7 @@ function get_country(age)
     let weighted_countries = {};
     for (const [key, country] of Object.entries(BIRTH_PLACES.countries)) {
         if (key == "usa" && usa_proba > 0) continue;
-        weighted_countries[key] = country.population;
+        weighted_countries[key] = $("#weighted_rdn").is(':checked') ? country.population : 1;
     }
     return weighted_random(weighted_countries);
 }
@@ -541,18 +542,18 @@ function normalize_case(string)
 function get_first_name(sex, key_country)
 {
     let key_country_eq = NAMES.country_for_names[key_country];
-    let gender = sex == "Homme" ? "male" : "female";
+    let gender = sex == "Male" ? "male" : "female";
 
     let name1 = normalize_case(array_rand(NAMES[key_country_eq + "_" + gender]));
 
     switch (key_country_eq) {
         case "russia":
-            if (sex == "Homme")
+            if (sex == "Male")
                 return name1 + normalize_case(array_rand(NAMES.russia_patro)) + "ich";
             else
                 return name1 + " " + normalize_case(array_rand(NAMES.russia_patro)) + "na";
         case "ukraine":
-            if (sex == "Homme")
+            if (sex == "Male")
                 return name1 + " " + normalize_case(array_rand(NAMES.ukraine_patro)) + "ych";
             else
                 return name1 + " " + normalize_case(array_rand(NAMES.ukraine_patro)) + "na";
@@ -580,7 +581,7 @@ function get_last_name(sex, key_country)
             let god = array_rand(NAMES.arabic_laqab);
             let surname = array_rand(NAMES.arabic_lastname);
             let nasab; let laqab;
-            if (sex == "Homme") {
+            if (sex == "Male") {
                 nasab = weighted_random({"Ibn": 5, "Bin Abi": 1}) + father;
                 laqab = "Abdul-" + god;
             }
@@ -597,7 +598,7 @@ function get_last_name(sex, key_country)
             return normalize_case(array_rand(possibilities));
         
         case "russia":
-            if (sex == "Homme") {
+            if (sex == "Male") {
                 let rdn = rand(1, 200+5+20+5+25);
                 if (rdn < 200) return array_rand(NAMES.russia_lastname_v);
                 if (rdn < 205) return array_rand(NAMES.russia_lastname_sk) + "i";
@@ -614,7 +615,7 @@ function get_last_name(sex, key_country)
         
         case "ukraine":
             let rdn = rand(1, 30+10+5);
-            if (sex == "Homme") {
+            if (sex == "Male") {
                 if (rdn < 30) return array_rand(NAMES.ukraine_lastname_n);
                 if (rdn < 40) return array_rand(NAMES.ukraine_lastname_v);
                 else return array_rand(NAMES.ukraine_lastname_sk) + "yi";
@@ -627,7 +628,7 @@ function get_last_name(sex, key_country)
             }
 
         case "greece":
-            if (sex == "Homme") return array_rand(NAMES.greece_lastname_male);
+            if (sex == "Male") return array_rand(NAMES.greece_lastname_male);
             else return array_rand(NAMES.greece_lastname_female);
     }
 
@@ -639,54 +640,54 @@ function get_languages(key_country)
 {
     let all_languages = {
         // "Anglais": 1348,
-        "Mandarin (Chine)": 1120,
-        "Hindi (Inde)": 600,
-        "Espagnol": 543,
-        "Arabe": 274,
+        "Mandarin (China)": 1120,
+        "Hindi (India)": 600,
+        "Spanish": 543,
+        "Arabic": 274,
         "Bengali": 268,
-        "Français": 267,
-        "Russe": 258,
-        "Portugais": 258,
+        "French": 267,
+        "Russian": 258,
+        "Portuguese": 258,
         "Indonésien": 199,
-        "Allemand": 135,
-        "Japonais": 126,
-        "Turc": 88,
-        "Coréen": 82,
-        "Vietnamien": 82,
-        "Haoussa": 75, // Niger
-        "Iranien": 74,
-        "Egyptien": 70,
+        "Indonesian": 135,
+        "Japanese": 126,
+        "Turkish": 88,
+        "Korean": 82,
+        "Vietnamese": 82,
+        "Hausa": 75, // Niger
+        "Iranian": 74,
+        "Egyptian": 70,
         "Swahili": 69, // Tanzanie
-        "Javanais": 68, // Indonésie
-        "Italien": 68,
-        "Thaï": 61,
+        "Javanese": 68, // Indonésie
+        "Italian": 68,
+        "Thai": 61,
         "Amharic": 57, // Ethiopie
-        "Philippin": 45,
+        "Filipino": 45,
         "Yoruba": 43, // Niger
-        "Birman": 43,
-        "Polonais": 41
+        "Burmese": 43,
+        "Polish": 41
     };
 
     let indian_languages = {
-        // "Hindi (Inde)": 600,
-        "Urdu (Inde)": 230,
-        "Marathi (Inde)": 99,
-        "Telugu (Inde)": 96,
-        "Tamil (Inde)": 85,
-        "Pendjabi de l'Ouest (Inde)": 65,
-        "Gujarati (Inde)": 62,
-        "Kannada (Inde)": 59,
-        "Pendjabi de l'Est (Inde)": 52,
-        "Odia (Inde)": 40
+        // "Hindi (India)": 600,
+        "Urdu (India)": 230,
+        "Marathi (India)": 99,
+        "Telugu (India)": 96,
+        "Tamil (India)": 85,
+        "West Punjabi (India)": 65,
+        "Gujarati (India)": 62,
+        "Kannada (India)": 59,
+        "East Punjabi (India)": 52,
+        "Odia (India)": 40
     };
 
     let chinese_languages = {
-        // "Mandarin (Chine)": 1120,
-        "Cantonais (Chine)": 85,
-        "Wu (Chine)": 82,
-        "Minnan (Chine)": 49,
-        "Jin (Chine)": 47,
-        "Hakka (Chine)": 44,
+        // "Mandarin (China)": 1120,
+        "Cantonese (China)": 85,
+        "Wu (China)": 82,
+        "Minnan (China)": 49,
+        "Jin (China)": 47,
+        "Hakka (China)": 44,
     };
 
     let languages = [];
@@ -734,7 +735,7 @@ function get_languages(key_country)
     }
     
     // Create the string
-    let result = "Anglais";
+    let result = "English";
     for (let lang of languages) {
         result += ", " + lang;
     }
@@ -799,50 +800,50 @@ function get_hair(key_country, age, can_be_bald = false)
         else if (age > 40) bald_proba = 10;
         else if (age > 30) bald_proba = 5;
         else if (age > 20) bald_proba = 2;
-        if (rand(1, 100) < bald_proba) return "Chauve";
+        if (rand(1, 100) < bald_proba) return "Bald";
     }
 
     switch (key_country) {
         case "ireland":
-            return weighted_random({"Noirs": 10, "Chatains": 25, "Blonds": 25, "Roux": 30});
+            return weighted_random({"Black": 10, "Dark blond": 25, "Blond": 25, "Red": 30});
         case "italy":
-            return weighted_random({"Noirs": 30, "Chatains": 55, "Blonds": 10, "Roux": 5});
+            return weighted_random({"Black": 30, "Dark blond": 55, "Blond": 10, "Red": 5});
         case "germany":
         case "poland":
         case "russia":
         case "ukraine":
         case "australia":
-            return weighted_random({"Noirs": 10, "Chatains": 20, "Blonds": 60, "Roux": 20});
+            return weighted_random({"Black": 10, "Dark blond": 20, "Blond": 60, "Red": 20});
     }
 
     switch (BIRTH_PLACES.countries[key_country].ethnic_group) {
-        case "Asiatique":
-            return weighted_random({"Noirs": 90, "Chatains": 8, "Blonds": 1, "Roux": 1});
-        case "Noire":
-            return weighted_random({"Noirs": 90, "Chatains": 10});
-        case "Blanche":
-            return weighted_random({"Noirs": 25, "Chatains": 40, "Blonds": 25, "Roux": 10});
-        case "Hispanique":
-            return weighted_random({"Noirs": 75, "Chatains": 20, "Blonds": 4, "Roux": 1});
+        case "Asian":
+            return weighted_random({"Black": 90, "Dark blond": 8, "Blond": 1, "Red": 1});
+        case "Black":
+            return weighted_random({"Black": 90, "Dark blond": 10});
+        case "White":
+            return weighted_random({"Black": 25, "Dark blond": 40, "Blond": 25, "Red": 10});
+        case "Latino":
+            return weighted_random({"Black": 75, "Dark blond": 20, "Blond": 4, "Red": 1});
     }
 
-    return weighted_random({"Noirs": 40, "Chatains": 50, "Blonds": 10});
+    return weighted_random({"Black": 40, "Dark blond": 50, "Blond": 10});
 }
 
 function get_eyes(ethnic_group)
 {
     switch (ethnic_group) {
-        case "Blanche":
-            return weighted_random({"Bleus clairs": 1, "Bleus": 30, "Marrons clairs": 1, "Marrons": 33, "Noirs": 1, "Verts": 15, "Noisettes": 16, "Gris": 1});
-        case "Noire":
-            return weighted_random({"Bleus clairs": 0, "Bleus": 0, "Marrons clairs": 1, "Marrons": 84, "Noirs": 12, "Verts": 0, "Noisettes": 1, "Gris": 0});
-        case "Asiatique":
-            return weighted_random({"Bleus clairs": 0, "Bleus": 5, "Marrons clairs": 1, "Marrons": 60, "Noirs": 30, "Verts": 0, "Noisettes": 2, "Gris": 2});
-        case "Hispanique":
-            return weighted_random({"Bleus clairs": 0, "Bleus": 2, "Marrons clairs": 2, "Marrons": 79, "Noirs": 6, "Verts": 4, "Noisettes": 5, "Gris": 0});
-        case "Amérindien":
-            return weighted_random({"Bleus clairs": 1, "Bleus": 10, "Marrons clairs": 1, "Marrons": 61, "Noirs": 5, "Verts": 5, "Noisettes": 16, "Gris": 1});
+        case "White":
+            return weighted_random({"Light blue": 1, "Blue": 30, "Light brown": 1, "Brown": 33, "Black": 1, "Green": 15, "Hazel": 16, "Gray": 1});
+        case "Black":
+            return weighted_random({"Light blue": 0, "Blue": 0, "Light brown": 1, "Brown": 84, "Black": 12, "Green": 0, "Hazel": 1, "Gray": 0});
+        case "Asian":
+            return weighted_random({"Light blue": 0, "Blue": 5, "Light brown": 1, "Brown": 60, "Black": 30, "Green": 0, "Hazel": 2, "Gray": 2});
+        case "Latino":
+            return weighted_random({"Light blue": 0, "Blue": 2, "Light brown": 2, "Brown": 79, "Black": 6, "Green": 4, "Hazel": 5, "Gray": 0});
+        case "Native american":
+            return weighted_random({"Light blue": 1, "Blue": 10, "Light brown": 1, "Brown": 61, "Black": 5, "Green": 5, "Hazel": 16, "Gray": 1});
         default:
-            return weighted_random({"Bleus clairs": 1, "Bleus": 26, "Marrons clairs": 1, "Marrons": 45, "Noirs": 2, "Verts": 9, "Noisettes": 18, "Gris": 1});
+            return weighted_random({"Light blue": 1, "Blue": 26, "Light brown": 1, "Brown": 45, "Black": 2, "Green": 9, "Hazel": 18, "Gray": 1});
     }
 }
